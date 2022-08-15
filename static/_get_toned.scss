@@ -1,0 +1,25 @@
+@use "constants";
+/* --- header section --- */
+
+.carousel {
+  @extend %shared-box;
+  background: radial-gradient(closest-side, constants.$light-green, constants.$light-blue, constants.$dark-blue);
+  height: 45vw;
+  span {
+    color: constants.$light-green;
+  }
+  .header-image {
+    height: 40vw;
+    img {
+      max-height: 40vw;
+      position: absolute;
+      right: 21vw;
+      bottom: 0;
+    }
+  }
+  .carousel-box {
+    @extend %shared-box-content;
+    margin: 9vw 0 0 25vw;
+    z-index: 100;
+  }
+}

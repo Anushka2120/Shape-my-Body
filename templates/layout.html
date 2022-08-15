@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}{% endblock %} - Shape my Body </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="/static/favicon.ico" rel="icon">
+    <link href="/static/styles.css" rel="stylesheet">
+    <script src="https://developer.edamam.com/attribution/badge.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    {% block headerScript %}
+    {% endblock %}
+  </head>
+  <body>
+    <nav>
+      <a class="navbar-brand" href="/">Shape my Body</a>
+        <ul>
+          <li><a href="/about_us">about us</a></li>
+          <li><a href="/eat_healthy">eat healthy</a></li>
+          <li><a href="/get_toned">get toned</a></li>
+          <li><a href="/manage_weight">manage weight</a></li>
+          <li><a href="/contact_us">contact us</a></li>
+        </ul>
+      {% if session.user_id %}
+        <ul>
+          <a href="/logout">Log Out</a>
+        </ul>
+      {% else %}
+        <ul>
+          <li><a href="/register">Signup</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      {% endif %}
+    </nav>
+    <main>
+      {% block main %}
+      {% endblock %}
+    </main>
+    {% if not (request.path.endswith("login") or request.path.endswith("register")) %}
+      <footer>
+        <div class="lower-footer">
+          <p>MADE WITH <span><i class="fas fa-heart"></i></span> BY <a href="https://www.fynd.academy/">Fynd Student</a></p>
+        </div>
+      </footer>
+    {% endif %}
+    <scripts>
+      {% block script %}
+      {% endblock %}
+    </scripts>
+  </body>
+</html>

@@ -1,0 +1,1308 @@
+/* --- reusables --- */
+.contact-us-header, .about-us-header, .manage-weight-header, .eat-healthy-header, .contact-us, .weightloss-program, .healthy-recipes, .training-plan, .carousel {
+  display: flex;
+  align-items: center;
+  padding: 6vw 0;
+  width: 100vw;
+  position: relative;
+}
+
+.contact-us-header .contact-us-header-box, .about-us-header .about-us-header-box, .manage-weight-header .manage-weight-header-box, .eat-healthy-header .eat-healthy-header-box, .contact-us .contact-us-box, .healthy-recipes .healthy-recipes-box, .training-plan .training-plan-box, .carousel .carousel-box {
+  padding: 3.5vw 5vw;
+  width: 55vw;
+  z-index: 100;
+}
+
+.right-background-box, .left-background-box {
+  position: absolute;
+  top: 6vw;
+  bottom: 9vw;
+  width: 55vw;
+}
+
+.cropped {
+  width: 40vw;
+  height: 32vw;
+  overflow: hidden;
+  z-index: 100;
+}
+.cropped img {
+  max-height: 32vw;
+}
+
+.image-position-right {
+  margin: 3.5vw 7vw 0 4vw;
+}
+
+.image-position-left {
+  margin: 3.5vw 4vw 0 7vw;
+}
+
+.text-box {
+  width: 30vw;
+}
+
+.left-background-box {
+  background-color: #E6E6E6;
+  left: 10vw;
+}
+
+.right-background-box {
+  background-color: #FFFFFF;
+  right: 10vw;
+}
+
+/* --- components --- */
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+}
+body *, body ::after, body ::before {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Open Sans semibold";
+  font-size: 4.5vw;
+  text-transform: uppercase;
+  line-height: 4vw;
+  margin: 0;
+}
+
+h2 {
+  font-weight: 900;
+  font-size: 2.5vw;
+  text-transform: uppercase;
+  line-height: 2vw;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.4vw;
+  font-weight: 400;
+  padding: 2vw 0;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+h4 {
+  font-size: 1.1vw;
+  font-family: "Open Sans semibold";
+  color: #454444;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 0.9vw;
+  line-height: 0.9vw;
+}
+
+a {
+  font-size: 0.9vw;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  color: #FAD5EE;
+}
+
+a.navbar-brand {
+  font-family: "Trajan Pro 3";
+  font-size: 2vw;
+  width: 13vw;
+  text-align: left;
+}
+
+button {
+  font-size: 1.1vw;
+  font-family: "Open Sans semibold";
+  padding: 0.8vw 3vw;
+  height: 4vw;
+  background-color: transparent;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  border: 1.5px solid #FFFFFF;
+  border-radius: 5px;
+}
+
+.container {
+  padding: 5vw 5vw 7vw 5vw;
+}
+
+/* --- navigation --- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2vw;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  height: 7vw;
+  margin-top: -7vw;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), transparent);
+}
+
+nav ul, .upper-footer ul {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+nav ul li, .upper-footer ul li {
+  display: inline-block;
+}
+nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
+  padding: 0 1vw;
+}
+
+.upper-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4vw;
+  background-color: #37969A;
+}
+.upper-footer .social-media li {
+  font-size: 2vw;
+  padding: 2vw 3vw;
+}
+
+/* --- header section --- */
+.carousel {
+  background: radial-gradient(closest-side, #56BBBF, #56BBBF, #37969A);
+  height: 45vw;
+}
+.carousel span {
+  color: #ADFCAE;
+}
+.carousel .header-image {
+  height: 40vw;
+}
+.carousel .header-image img {
+  max-height: 40vw;
+  position: absolute;
+  right: 21vw;
+  bottom: 0;
+}
+.carousel .carousel-box {
+  margin: 9vw 0 0 25vw;
+  z-index: 100;
+}
+
+/* --- training plan section --- */
+.training-plan {
+  background-color: #FFFFFF;
+}
+.training-plan .training-plan-box {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: right;
+  background-color: #82EB84;
+}
+.training-plan .training-plan-box span {
+  color: #D993C8;
+}
+.training-plan .training-plan-box button:hover {
+  color: #D993C8;
+  border: 1.5px solid #D993C8;
+}
+
+/* --- healthy recipes section --- */
+.healthy-recipes {
+  background-color: #E6E6E6;
+  justify-content: flex-end;
+}
+.healthy-recipes .healthy-recipes-box {
+  background-color: #FD8902;
+}
+.healthy-recipes .healthy-recipes-box span {
+  color: #ADFCAE;
+}
+.healthy-recipes .healthy-recipes-box button:hover {
+  color: #ADFCAE;
+  border: 1.5px solid #ADFCAE;
+}
+
+/* --- weight loss section --- */
+.weightloss-program {
+  padding: 10vw 0;
+  background: radial-gradient(closest-side, #EFB6DD, #D993C8);
+}
+.weightloss-program span {
+  color: #FDFD97;
+}
+.weightloss-program img {
+  max-height: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.weightloss-program .weightloss-box {
+  padding-left: 14vw;
+  z-index: 100;
+}
+.weightloss-program button:hover {
+  color: #FDFD97;
+  border: 1.5px solid #FDFD97;
+}
+
+/* --- contact us section --- */
+.contact-us {
+  background-color: #FFFFFF;
+}
+.contact-us .contact-us-box {
+  background-color: #56BBBF;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: right;
+}
+.contact-us .contact-us-box span {
+  color: #FAD5EE;
+}
+.contact-us .contact-us-box button:hover {
+  color: #FAD5EE;
+  border: 1.5px solid #FAD5EE;
+}
+
+/* --- footer --- */
+.lower-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #454444;
+}
+.lower-footer span {
+  color: #FAD5EE;
+}
+.lower-footer a:link, .lower-footer a:visited {
+  color: #FAD5EE;
+  text-decoration: none;
+}
+.lower-footer a:hover, .lower-footer a:active {
+  color: #EFB6DD;
+}
+
+.auth .auth-content, .auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth .auth-content .signup-left-container, .auth .auth-content .login-right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #56BBBF;
+  width: 26vw;
+  height: 100%;
+}
+.auth .auth-content .signup-left-container h3, .auth .auth-content .login-right-container h3 {
+  padding-top: 0;
+}
+.auth .auth-content .signup-left-container div, .auth .auth-content .login-right-container div {
+  display: flex;
+  align-items: center;
+}
+.auth .auth-content .signup-left-container div span, .auth .auth-content .login-right-container div span {
+  font-size: 0.9vw;
+  padding-right: 1vw;
+}
+
+.auth {
+  background: radial-gradient(closest-side, #56BBBF, #56BBBF, #37969A);
+  height: 100vh;
+  flex-direction: column;
+}
+.auth .auth-content {
+  justify-content: space-between;
+  background-color: #56BBBF;
+  width: 65vw;
+  border-radius: 0.5vw;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  margin-top: 8vw;
+}
+.auth .auth-content .login-left-container, .auth .auth-content .signup-right-container {
+  background-color: #FAD5EE;
+  width: 40vw;
+  height: 100%;
+  border-radius: 0.5vw;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+.auth .auth-content .login-left-container h2, .auth .auth-content .signup-right-container h2 {
+  background-color: #D993C8;
+  border-radius: 0.5vw 0.5vw 0 0;
+  padding: 3vw 0;
+  text-align: center;
+}
+.auth .auth-content .login-left-container h2 span, .auth .auth-content .signup-right-container h2 span {
+  color: #ADFCAE;
+}
+.auth .auth-content .login-left-container form, .auth .auth-content .signup-right-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3vw;
+}
+.auth .auth-content .login-left-container form ::placeholder, .auth .auth-content .signup-right-container form ::placeholder {
+  color: #B5B5B5;
+  opacity: 1;
+  font-size: 1.1vw;
+}
+.auth .auth-content .login-left-container form div, .auth .auth-content .signup-right-container form div {
+  display: flex;
+  flex-direction: row;
+}
+.auth .auth-content .login-left-container form div span, .auth .auth-content .signup-right-container form div span {
+  background-color: #D993C8;
+  padding: 1vw 2vw;
+  margin: 1vw 0;
+  border-radius: 5px 0 0 5px;
+}
+.auth .auth-content .login-left-container form div input, .auth .auth-content .signup-right-container form div input {
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 1vw 2vw;
+  margin: 1vw 0;
+}
+.auth .auth-content .login-left-container form button, .auth .auth-content .signup-right-container form button {
+  background-color: #D993C8;
+  border: 2px solid #D993C8;
+  margin: 3vw auto 1vw;
+}
+.auth .auth-content .login-left-container form button:hover, .auth .auth-content .signup-right-container form button:hover {
+  background-color: #EFB6DD;
+  border: 2px solid #FFFFFF;
+}
+.auth .auth-content .login-right-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0 3vw 0 4vw;
+}
+.auth .auth-content .signup-left-container {
+  padding: 0 3vw;
+}
+.auth .signup-link {
+  font-size: 1.4vw;
+  font-weight: 900;
+  text-transform: lowercase;
+}
+
+/* --- header section --- */
+.eat-healthy-header {
+  background: radial-gradient(closest-side, #FFB55F, #FFB55F, #FD8902);
+  height: 35vw;
+  overflow: hidden;
+}
+.eat-healthy-header span {
+  color: #ADFCAE;
+}
+.eat-healthy-header .eat-healthy-header-image {
+  height: 40vw;
+}
+.eat-healthy-header .eat-healthy-header-image img {
+  max-height: 40vw;
+  position: absolute;
+  right: 21vw;
+  bottom: -10vw;
+}
+.eat-healthy-header .eat-healthy-header-box {
+  margin: 3vw 0 0 22vw;
+  z-index: 100;
+}
+.eat-healthy-header .eat-healthy-header-box input {
+  font-size: 1.1vw;
+  font-family: "Open Sans semibold";
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+  width: 100%;
+  padding-right: 1.5vw;
+}
+.eat-healthy-header .eat-healthy-header-box ::placeholder {
+  color: #FFFFFF;
+  opacity: 0.6;
+}
+.eat-healthy-header .eat-healthy-header-box textarea:focus, .eat-healthy-header .eat-healthy-header-box input:focus {
+  outline: none;
+}
+.eat-healthy-header .eat-healthy-header-box .search {
+  font-size: 1.1vw;
+  display: flex;
+  border: 1.5px solid #FFFFFF;
+  border-radius: 5px;
+  height: 4vw;
+}
+.eat-healthy-header .eat-healthy-header-box .search .search-icon {
+  display: flex;
+  align-items: center;
+  padding: 0.8vw 1.5vw;
+}
+
+/* --- main section --- */
+.eat-healthy {
+  background-color: #E6E6E6;
+}
+.eat-healthy .container-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5vw;
+}
+.eat-healthy .container-action h3 {
+  padding: 0;
+  color: #454444;
+}
+.eat-healthy .container-action h3 span {
+  font-weight: 900;
+}
+.eat-healthy .container-action .show-saved-button {
+  background-color: #D993C8;
+  border: none;
+}
+.eat-healthy .container-action .show-saved-button:hover {
+  background-color: #EFB6DD;
+}
+
+.save-recipe button {
+  all: unset;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  padding: 1vw;
+  width: 18vw;
+}
+.icon-container h3 {
+  padding: 0 0 0 1vw;
+}
+.icon-container .save-icon {
+  font-size: 1.8vw;
+  color: #F747AD;
+}
+
+.icon-container:hover h3 {
+  color: #B5B5B5;
+}
+.icon-container:hover .save-icon {
+  font-size: 1.8vw;
+  color: #D993C8;
+}
+
+.featured-recipes-area {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.featured-recipes-area .small-recipe-container {
+  margin: 1vw;
+  color: #454444;
+  cursor: pointer;
+}
+.featured-recipes-area .small-recipe-container .recipe-selector .small-recipe-image {
+  height: 14vw;
+  width: 20vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-radius: 1vw 1vw 0 0;
+}
+.featured-recipes-area .small-recipe-container .recipe-selector .small-recipe-image img {
+  max-width: 100%;
+}
+.featured-recipes-area .small-recipe-container .recipe-selector .small-recipe-text {
+  background-color: #FFFFFF;
+  height: 10vw;
+  width: 20vw;
+  padding: 1vw 1vw 0;
+}
+.featured-recipes-area .small-recipe-container .recipe-selector .small-recipe-text .recipe-content {
+  padding-left: 1vw;
+}
+.featured-recipes-area .small-recipe-container .recipe-selector .small-recipe-text .recipe-content h3 {
+  padding-top: 0;
+  height: 4.8vw;
+  overflow: hidden;
+}
+.featured-recipes-area .small-recipe-container .save-recipe {
+  background-color: #FFFFFF;
+  height: 5vw;
+  border-radius: 0 0 1vw 1vw;
+  padding: 0 1vw 1vw;
+}
+.featured-recipes-area .small-recipe-container .save-recipe .icon-container {
+  border-top: 1px solid #B5B5B5;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.modal .close {
+  color: #454444;
+  float: right;
+  font-size: 2.5vw;
+  padding: 1vw;
+}
+.modal .close:hover,
+.modal .close:focus {
+  color: #F747AD;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal .modal-content {
+  background-color: #FFFFFF;
+  margin: 10vw auto;
+  width: 80vw;
+  border-radius: 0.5vw;
+}
+.modal .modal-content .large-recipe-image {
+  height: 40vw;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.modal .modal-content .large-recipe-image img {
+  display: block;
+  width: 80vw;
+  height: 80vw;
+}
+.modal .modal-content .modal-header {
+  background-color: #37969A;
+  display: flex;
+  justify-content: space-between;
+  padding: 1vw 3vw;
+  border-radius: 0.5vw 0.5vw 0 0;
+}
+.modal .modal-content .modal-header .modal-header-left h2 {
+  color: #ADFCAE;
+}
+.modal .modal-content .modal-header .modal-header-left .macro-nutrients {
+  display: flex;
+}
+.modal .modal-content .modal-header .modal-header-left .macro-nutrients h3 {
+  color: #FFFFFF;
+  padding: 1vw 1vw 0.5vw 0;
+}
+.modal .modal-content .modal-header .modal-header-left .modal-header-bottom-row {
+  display: flex;
+}
+.modal .modal-content .modal-header .modal-header-left .modal-header-bottom-row .icon-container {
+  padding: 0;
+  margin-right: 2vw;
+}
+.modal .modal-content .modal-header .modal-header-left .modal-header-bottom-row .icon-container h3 {
+  color: #FFFFFF;
+}
+.modal .modal-content .modal-header .modal-header-left .modal-header-bottom-row .icon-container .icon {
+  font-size: 1.4vw;
+}
+.modal .modal-content .modal-header .modal-header-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.modal .modal-content .modal-header .modal-header-right .icon-container {
+  justify-content: flex-end;
+  padding: 0 0 1vw 0;
+}
+.modal .modal-content .modal-header .modal-header-right .icon-container h3 {
+  color: #FFFFFF;
+}
+.modal .modal-content .modal-header .modal-header-right .icon-container .save-icon {
+  color: #FAD5EE;
+}
+.modal .modal-content .modal-header .modal-header-right .icon-container:hover h3 {
+  color: #E6E6E6;
+}
+.modal .modal-content .modal-header .modal-header-right .icon-container:hover .save-icon {
+  color: #EFB6DD;
+}
+.modal .modal-content .modal-bottom {
+  background-color: #37969A;
+  padding: 2vw;
+  display: flex;
+  color: #454444;
+  border-radius: 0 0 0.5vw 0.5vw;
+}
+.modal .modal-content .modal-bottom h3 {
+  padding: 0;
+}
+.modal .modal-content .modal-bottom .ingredients {
+  padding: 1vw;
+  width: 50%;
+}
+.modal .modal-content .modal-bottom .ingredients h2 {
+  background-color: #D993C8;
+  color: #FDFD97;
+  border-radius: 0.5vw 0.5vw 0 0;
+  padding: 2vw;
+}
+.modal .modal-content .modal-bottom .ingredients button {
+  margin: 2vw auto 0 auto;
+  border: none;
+  background-color: #FD8902;
+}
+.modal .modal-content .modal-bottom .ingredients button:hover {
+  background-color: #FFB55F;
+}
+.modal .modal-content .modal-bottom .nutrients {
+  padding: 1vw;
+  width: 50%;
+}
+.modal .modal-content .modal-bottom .nutrients h2 {
+  background-color: #82EB84;
+  color: #F747AD;
+  border-radius: 0.5vw 0.5vw 0 0;
+  padding: 2vw;
+}
+.modal .modal-content .modal-bottom .content-box {
+  background-color: #FFFFFF;
+  border-radius: 0 0 0.5vw 0.5vw;
+  padding: 2vw;
+}
+.modal .modal-content .modal-bottom .content-box .nutrients-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* --- header section --- */
+.manage-weight-header {
+  background: radial-gradient(closest-side, #EFB6DD, #EFB6DD, #D993C8);
+  height: 35vw;
+  overflow: hidden;
+}
+.manage-weight-header span {
+  color: #FDFD97;
+}
+.manage-weight-header .manage-weight-header-image {
+  height: 35vw;
+}
+.manage-weight-header .manage-weight-header-image img {
+  max-height: 35vw;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.manage-weight-header .manage-weight-header-box {
+  width: 65vw;
+  margin: 7vw 0 0 15vw;
+}
+
+/* --- forms sections --- */
+.manage-weight-main, .manage-weight-main-cards {
+  background-color: #E6E6E6;
+  padding: 3vw 7vw;
+  color: #454444;
+}
+.manage-weight-main .main-header-text, .manage-weight-main-cards .main-header-text {
+  background-color: #37969A;
+  color: #FFFFFF;
+  border-radius: 0.5vw 0.5vw 0 0;
+  padding: 2vw;
+  text-align: center;
+}
+.manage-weight-main .main-header-text h2 span, .manage-weight-main-cards .main-header-text h2 span {
+  color: #ADFCAE;
+}
+.manage-weight-main .main-header-text h3, .manage-weight-main-cards .main-header-text h3 {
+  padding: 1vw 0 0 0;
+}
+.manage-weight-main .main-content, .manage-weight-main-cards .main-content {
+  background-color: #FFFFFF;
+  padding: 3vw 7vw 5vw 7vw;
+  margin-bottom: 3vw;
+}
+.manage-weight-main .main-content h3, .manage-weight-main-cards .main-content h3 {
+  padding: 0 0 1vw 0;
+}
+.manage-weight-main .main-content h3 span, .manage-weight-main-cards .main-content h3 span {
+  font-weight: 900;
+}
+.manage-weight-main .main-content .gender-box, .manage-weight-main .main-content .action-box, .manage-weight-main-cards .main-content .gender-box, .manage-weight-main-cards .main-content .action-box {
+  padding-bottom: 3vw;
+}
+.manage-weight-main .main-content .gender-box .gender-container, .manage-weight-main .main-content .gender-box .action-container, .manage-weight-main .main-content .action-box .gender-container, .manage-weight-main .main-content .action-box .action-container, .manage-weight-main-cards .main-content .gender-box .gender-container, .manage-weight-main-cards .main-content .gender-box .action-container, .manage-weight-main-cards .main-content .action-box .gender-container, .manage-weight-main-cards .main-content .action-box .action-container {
+  display: flex;
+  justify-content: space-between;
+}
+.manage-weight-main .main-content .gender-box .gender-container input, .manage-weight-main .main-content .gender-box .action-container input, .manage-weight-main .main-content .action-box .gender-container input, .manage-weight-main .main-content .action-box .action-container input, .manage-weight-main-cards .main-content .gender-box .gender-container input, .manage-weight-main-cards .main-content .gender-box .action-container input, .manage-weight-main-cards .main-content .action-box .gender-container input, .manage-weight-main-cards .main-content .action-box .action-container input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.manage-weight-main .main-content .gender-box .gender-container .text-box, .manage-weight-main .main-content .gender-box .action-container .text-box, .manage-weight-main .main-content .action-box .gender-container .text-box, .manage-weight-main .main-content .action-box .action-container .text-box, .manage-weight-main-cards .main-content .gender-box .gender-container .text-box, .manage-weight-main-cards .main-content .gender-box .action-container .text-box, .manage-weight-main-cards .main-content .action-box .gender-container .text-box, .manage-weight-main-cards .main-content .action-box .action-container .text-box {
+  text-align: center;
+}
+.manage-weight-main .main-content .gender-box .gender-container .text-box h3, .manage-weight-main .main-content .gender-box .action-container .text-box h3, .manage-weight-main .main-content .action-box .gender-container .text-box h3, .manage-weight-main .main-content .action-box .action-container .text-box h3, .manage-weight-main-cards .main-content .gender-box .gender-container .text-box h3, .manage-weight-main-cards .main-content .gender-box .action-container .text-box h3, .manage-weight-main-cards .main-content .action-box .gender-container .text-box h3, .manage-weight-main-cards .main-content .action-box .action-container .text-box h3 {
+  line-height: 1.4vw;
+  padding-bottom: 1vw;
+}
+.manage-weight-main .main-content .gender-box .gender-container .male, .manage-weight-main .main-content .gender-box .gender-container .female, .manage-weight-main .main-content .gender-box .gender-container .gain, .manage-weight-main .main-content .gender-box .gender-container .lose, .manage-weight-main .main-content .gender-box .action-container .male, .manage-weight-main .main-content .gender-box .action-container .female, .manage-weight-main .main-content .gender-box .action-container .gain, .manage-weight-main .main-content .gender-box .action-container .lose, .manage-weight-main .main-content .action-box .gender-container .male, .manage-weight-main .main-content .action-box .gender-container .female, .manage-weight-main .main-content .action-box .gender-container .gain, .manage-weight-main .main-content .action-box .gender-container .lose, .manage-weight-main .main-content .action-box .action-container .male, .manage-weight-main .main-content .action-box .action-container .female, .manage-weight-main .main-content .action-box .action-container .gain, .manage-weight-main .main-content .action-box .action-container .lose, .manage-weight-main-cards .main-content .gender-box .gender-container .male, .manage-weight-main-cards .main-content .gender-box .gender-container .female, .manage-weight-main-cards .main-content .gender-box .gender-container .gain, .manage-weight-main-cards .main-content .gender-box .gender-container .lose, .manage-weight-main-cards .main-content .gender-box .action-container .male, .manage-weight-main-cards .main-content .gender-box .action-container .female, .manage-weight-main-cards .main-content .gender-box .action-container .gain, .manage-weight-main-cards .main-content .gender-box .action-container .lose, .manage-weight-main-cards .main-content .action-box .gender-container .male, .manage-weight-main-cards .main-content .action-box .gender-container .female, .manage-weight-main-cards .main-content .action-box .gender-container .gain, .manage-weight-main-cards .main-content .action-box .gender-container .lose, .manage-weight-main-cards .main-content .action-box .action-container .male, .manage-weight-main-cards .main-content .action-box .action-container .female, .manage-weight-main-cards .main-content .action-box .action-container .gain, .manage-weight-main-cards .main-content .action-box .action-container .lose {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 34vw;
+  background-color: #B5B5B5;
+  padding: 1vw 3vw;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 4.5vw;
+}
+.manage-weight-main .main-content .gender-box .gender-container .gain, .manage-weight-main .main-content .gender-box .gender-container .lose, .manage-weight-main .main-content .gender-box .action-container .gain, .manage-weight-main .main-content .gender-box .action-container .lose, .manage-weight-main .main-content .action-box .gender-container .gain, .manage-weight-main .main-content .action-box .gender-container .lose, .manage-weight-main .main-content .action-box .action-container .gain, .manage-weight-main .main-content .action-box .action-container .lose, .manage-weight-main-cards .main-content .gender-box .gender-container .gain, .manage-weight-main-cards .main-content .gender-box .gender-container .lose, .manage-weight-main-cards .main-content .gender-box .action-container .gain, .manage-weight-main-cards .main-content .gender-box .action-container .lose, .manage-weight-main-cards .main-content .action-box .gender-container .gain, .manage-weight-main-cards .main-content .action-box .gender-container .lose, .manage-weight-main-cards .main-content .action-box .action-container .gain, .manage-weight-main-cards .main-content .action-box .action-container .lose {
+  font-size: 2.5vw;
+}
+.manage-weight-main .main-content .gender-box .gender-container .male-input:hover ~ .male, .manage-weight-main .main-content .gender-box .action-container .male-input:hover ~ .male, .manage-weight-main .main-content .action-box .gender-container .male-input:hover ~ .male, .manage-weight-main .main-content .action-box .action-container .male-input:hover ~ .male, .manage-weight-main-cards .main-content .gender-box .gender-container .male-input:hover ~ .male, .manage-weight-main-cards .main-content .gender-box .action-container .male-input:hover ~ .male, .manage-weight-main-cards .main-content .action-box .gender-container .male-input:hover ~ .male, .manage-weight-main-cards .main-content .action-box .action-container .male-input:hover ~ .male {
+  background-color: #4ED2D6;
+}
+.manage-weight-main .main-content .gender-box .gender-container .female-input:hover ~ .female, .manage-weight-main .main-content .gender-box .action-container .female-input:hover ~ .female, .manage-weight-main .main-content .action-box .gender-container .female-input:hover ~ .female, .manage-weight-main .main-content .action-box .action-container .female-input:hover ~ .female, .manage-weight-main-cards .main-content .gender-box .gender-container .female-input:hover ~ .female, .manage-weight-main-cards .main-content .gender-box .action-container .female-input:hover ~ .female, .manage-weight-main-cards .main-content .action-box .gender-container .female-input:hover ~ .female, .manage-weight-main-cards .main-content .action-box .action-container .female-input:hover ~ .female {
+  background-color: #EFB6DD;
+}
+.manage-weight-main .main-content .gender-box .gender-container .gain-input:hover ~ .gain, .manage-weight-main .main-content .gender-box .action-container .gain-input:hover ~ .gain, .manage-weight-main .main-content .action-box .gender-container .gain-input:hover ~ .gain, .manage-weight-main .main-content .action-box .action-container .gain-input:hover ~ .gain, .manage-weight-main-cards .main-content .gender-box .gender-container .gain-input:hover ~ .gain, .manage-weight-main-cards .main-content .gender-box .action-container .gain-input:hover ~ .gain, .manage-weight-main-cards .main-content .action-box .gender-container .gain-input:hover ~ .gain, .manage-weight-main-cards .main-content .action-box .action-container .gain-input:hover ~ .gain {
+  background-color: #ADFCAE;
+}
+.manage-weight-main .main-content .gender-box .gender-container .lose-input:hover ~ .lose, .manage-weight-main .main-content .gender-box .action-container .lose-input:hover ~ .lose, .manage-weight-main .main-content .action-box .gender-container .lose-input:hover ~ .lose, .manage-weight-main .main-content .action-box .action-container .lose-input:hover ~ .lose, .manage-weight-main-cards .main-content .gender-box .gender-container .lose-input:hover ~ .lose, .manage-weight-main-cards .main-content .gender-box .action-container .lose-input:hover ~ .lose, .manage-weight-main-cards .main-content .action-box .gender-container .lose-input:hover ~ .lose, .manage-weight-main-cards .main-content .action-box .action-container .lose-input:hover ~ .lose {
+  background-color: #4ED2D6;
+}
+.manage-weight-main .main-content .gender-box .gender-container .male-input:checked ~ .male, .manage-weight-main .main-content .gender-box .action-container .male-input:checked ~ .male, .manage-weight-main .main-content .action-box .gender-container .male-input:checked ~ .male, .manage-weight-main .main-content .action-box .action-container .male-input:checked ~ .male, .manage-weight-main-cards .main-content .gender-box .gender-container .male-input:checked ~ .male, .manage-weight-main-cards .main-content .gender-box .action-container .male-input:checked ~ .male, .manage-weight-main-cards .main-content .action-box .gender-container .male-input:checked ~ .male, .manage-weight-main-cards .main-content .action-box .action-container .male-input:checked ~ .male {
+  background-color: #56BBBF;
+}
+.manage-weight-main .main-content .gender-box .gender-container .female-input:checked ~ .female, .manage-weight-main .main-content .gender-box .action-container .female-input:checked ~ .female, .manage-weight-main .main-content .action-box .gender-container .female-input:checked ~ .female, .manage-weight-main .main-content .action-box .action-container .female-input:checked ~ .female, .manage-weight-main-cards .main-content .gender-box .gender-container .female-input:checked ~ .female, .manage-weight-main-cards .main-content .gender-box .action-container .female-input:checked ~ .female, .manage-weight-main-cards .main-content .action-box .gender-container .female-input:checked ~ .female, .manage-weight-main-cards .main-content .action-box .action-container .female-input:checked ~ .female {
+  background-color: #D993C8;
+}
+.manage-weight-main .main-content .gender-box .gender-container .gain-input:checked ~ .gain, .manage-weight-main .main-content .gender-box .action-container .gain-input:checked ~ .gain, .manage-weight-main .main-content .action-box .gender-container .gain-input:checked ~ .gain, .manage-weight-main .main-content .action-box .action-container .gain-input:checked ~ .gain, .manage-weight-main-cards .main-content .gender-box .gender-container .gain-input:checked ~ .gain, .manage-weight-main-cards .main-content .gender-box .action-container .gain-input:checked ~ .gain, .manage-weight-main-cards .main-content .action-box .gender-container .gain-input:checked ~ .gain, .manage-weight-main-cards .main-content .action-box .action-container .gain-input:checked ~ .gain {
+  background-color: #82EB84;
+}
+.manage-weight-main .main-content .gender-box .gender-container .lose-input:checked ~ .lose, .manage-weight-main .main-content .gender-box .action-container .lose-input:checked ~ .lose, .manage-weight-main .main-content .action-box .gender-container .lose-input:checked ~ .lose, .manage-weight-main .main-content .action-box .action-container .lose-input:checked ~ .lose, .manage-weight-main-cards .main-content .gender-box .gender-container .lose-input:checked ~ .lose, .manage-weight-main-cards .main-content .gender-box .action-container .lose-input:checked ~ .lose, .manage-weight-main-cards .main-content .action-box .gender-container .lose-input:checked ~ .lose, .manage-weight-main-cards .main-content .action-box .action-container .lose-input:checked ~ .lose {
+  background-color: #56BBBF;
+}
+.manage-weight-main .main-content .weight-height-age-container, .manage-weight-main .main-content .desired-weight-container, .manage-weight-main-cards .main-content .weight-height-age-container, .manage-weight-main-cards .main-content .desired-weight-container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 3vw;
+}
+.manage-weight-main .main-content .activity-options-container, .manage-weight-main-cards .main-content .activity-options-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4ED2D6;
+  height: 1vw;
+  margin: 2vw 0;
+}
+.manage-weight-main .main-content .activity-options-container .container, .manage-weight-main-cards .main-content .activity-options-container .container {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 3vw;
+  margin-right: 3vw;
+}
+.manage-weight-main .main-content .activity-options-container .container input, .manage-weight-main-cards .main-content .activity-options-container .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.manage-weight-main .main-content .activity-options-container .checkmark, .manage-weight-main-cards .main-content .activity-options-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3vw;
+  width: 3vw;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  border: solid #4ED2D6;
+}
+.manage-weight-main .main-content .activity-options-container .container:hover input ~ .checkmark, .manage-weight-main-cards .main-content .activity-options-container .container:hover input ~ .checkmark {
+  background-color: #E6E6E6;
+}
+.manage-weight-main .main-content .activity-options-container .container input:checked ~ .checkmark, .manage-weight-main-cards .main-content .activity-options-container .container input:checked ~ .checkmark {
+  background-color: #37969A;
+}
+.manage-weight-main .main-content .label-text, .manage-weight-main-cards .main-content .label-text {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 3vw;
+}
+.manage-weight-main .main-content .label-text h4, .manage-weight-main-cards .main-content .label-text h4 {
+  margin: 0;
+}
+.manage-weight-main .main-content button:disabled, .manage-weight-main .main-content button[disabled], .manage-weight-main-cards .main-content button:disabled, .manage-weight-main-cards .main-content button[disabled] {
+  color: #B5B5B5;
+  border-color: #B5B5B5;
+  background-color: #FFFFFF;
+}
+.manage-weight-main .main-content button:enabled, .manage-weight-main-cards .main-content button:enabled {
+  color: #FFFFFF;
+  border-color: #FD8902;
+  background-color: #FD8902;
+}
+.manage-weight-main .main-content button:enabled:hover, .manage-weight-main-cards .main-content button:enabled:hover {
+  background-color: #FFB55F;
+  border-color: #FFB55F;
+}
+.manage-weight-main .main-content .calculate-makro button:enabled, .manage-weight-main-cards .main-content .calculate-makro button:enabled {
+  border-color: #F747AD;
+  background-color: #F747AD;
+}
+.manage-weight-main .main-content .calculate-makro button:enabled:hover, .manage-weight-main-cards .main-content .calculate-makro button:enabled:hover {
+  background-color: #D993C8;
+  border-color: #D993C8;
+}
+.manage-weight-main .main-content .weight, .manage-weight-main .main-content .height, .manage-weight-main .main-content .age, .manage-weight-main-cards .main-content .weight, .manage-weight-main-cards .main-content .height, .manage-weight-main-cards .main-content .age {
+  position: relative;
+}
+.manage-weight-main .main-content .weight input, .manage-weight-main .main-content .height input, .manage-weight-main .main-content .age input, .manage-weight-main-cards .main-content .weight input, .manage-weight-main-cards .main-content .height input, .manage-weight-main-cards .main-content .age input {
+  border: 1px solid #B5B5B5;
+  font-size: 1.4vw;
+  height: 6vw;
+  padding: 2vw;
+  width: 15vw;
+}
+.manage-weight-main .main-content .weight .unit, .manage-weight-main .main-content .height .unit, .manage-weight-main .main-content .age .unit, .manage-weight-main-cards .main-content .weight .unit, .manage-weight-main-cards .main-content .height .unit, .manage-weight-main-cards .main-content .age .unit {
+  position: absolute;
+  display: block;
+  left: 7vw;
+  top: 5.3vw;
+  z-index: 19;
+  font-weight: 400;
+  color: #B5B5B5;
+  padding: 0;
+}
+.manage-weight-main .main-content .age .unit, .manage-weight-main-cards .main-content .age .unit {
+  left: 6vw;
+}
+.manage-weight-main .main-content .calculate-calories, .manage-weight-main .main-content .calculate-makro, .manage-weight-main-cards .main-content .calculate-calories, .manage-weight-main-cards .main-content .calculate-makro {
+  display: flex;
+  justify-content: space-between;
+}
+.manage-weight-main .main-content .calculate-calories h3, .manage-weight-main .main-content .calculate-makro h3, .manage-weight-main-cards .main-content .calculate-calories h3, .manage-weight-main-cards .main-content .calculate-makro h3 {
+  font-weight: 400;
+  width: 30vw;
+  text-align: right;
+}
+.manage-weight-main .main-content .calculate-calories h3 span, .manage-weight-main .main-content .calculate-makro h3 span, .manage-weight-main-cards .main-content .calculate-calories h3 span, .manage-weight-main-cards .main-content .calculate-makro h3 span {
+  font-weight: 900;
+}
+.manage-weight-main .main-two-header-text, .manage-weight-main-cards .main-two-header-text {
+  background-color: #924ED6;
+}
+.manage-weight-main .main-two-header-text h2 span, .manage-weight-main-cards .main-two-header-text h2 span {
+  color: #FDFD97;
+}
+.manage-weight-main .main-three-header-text, .manage-weight-main-cards .main-three-header-text {
+  background-color: #37969A;
+}
+.manage-weight-main .main-three-header-text h2 span, .manage-weight-main-cards .main-three-header-text h2 span {
+  color: #FAD5EE;
+}
+
+.manage-weight-main-cards {
+  background-color: #FFFFFF;
+  padding: 3vw;
+}
+
+/* --- macronutrient summary section --- */
+.macronutrient-summary {
+  padding: 3vw 1vw 5vw 1vw;
+  position: relative;
+  background: #ADFCAE;
+  color: #454444;
+  border-radius: 0 0 0.5vw 0.5vw;
+}
+.macronutrient-summary h3 {
+  padding: 0 0 1.5vw 0;
+  font-weight: 900;
+}
+.macronutrient-summary .macronutrient-summary-box {
+  display: flex;
+  justify-content: space-between;
+}
+.macronutrient-summary .macro-card {
+  background-color: #FFFFFF;
+  border-radius: 0.5vw;
+  width: 22vw;
+  padding: 2vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  transform: 0.5s;
+}
+.macronutrient-summary .macro-card h3 {
+  padding: 0;
+  font-weight: 400;
+}
+.macronutrient-summary .macro-card h3 span {
+  font-weight: 900;
+}
+.macronutrient-summary .macro-card .card-circle h3 {
+  padding: 0;
+}
+.macronutrient-summary .macro-card .card-circle h4 {
+  color: #37969A;
+  margin: 0;
+}
+.macronutrient-summary .macro-card .card-circle .percent {
+  margin: 1vw 0;
+  padding: 0;
+  width: 20vw;
+  height: 20vw;
+  position: relative;
+}
+.macronutrient-summary .macro-card .card-circle .percent svg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+.macronutrient-summary .macro-card .card-circle .percent svg circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #E6E6E6;
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+.macronutrient-summary .macro-card .card-circle .percent svg circle:nth-child(2) {
+  stroke-dasharray: 57vw;
+  stroke-dashoffset: 57vw;
+}
+.macronutrient-summary .macro-card .card-circle .percent .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.macronutrient-summary .macro-card .card-circle .percent .number h3 span {
+  font-weight: 900;
+}
+.macronutrient-summary .macro-card .bar-holder {
+  width: 100%;
+  background-color: #e7e7e7;
+  border-radius: 20px;
+  margin: 0.5vw auto;
+}
+.macronutrient-summary .macro-card .bar-holder .bar {
+  border-radius: 20px;
+  height: 1vw;
+}
+.macronutrient-summary .macro-card .bar-holder .bar-1 {
+  width: 20%;
+  background-image: linear-gradient(100deg, #F747AD, #FD8902);
+}
+.macronutrient-summary .macro-card .bar-holder .bar-2 {
+  width: 40%;
+  background-image: linear-gradient(100deg, #4ED2D6, #924ED6);
+}
+.macronutrient-summary .macro-card .bar-holder .bar-3 {
+  width: 60%;
+  background-image: linear-gradient(100deg, #37969A, #82EB84);
+}
+.macronutrient-summary .macro-card .progress-bar-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.macronutrient-summary .macro-card:nth-child(1) .card-circle .percent svg circle:nth-child(2) {
+  stroke: #F747AD;
+  stroke-dashoffset: 55vw;
+}
+.macronutrient-summary .macro-card:nth-child(2) .card-circle .percent svg circle:nth-child(2) {
+  stroke: #4ED2D6;
+  stroke-dashoffset: 25vw;
+}
+.macronutrient-summary .macro-card:nth-child(3) .card-circle .percent svg circle:nth-child(2) {
+  stroke: #82EB84;
+  stroke-dashoffset: 5vw;
+}
+.macronutrient-summary .continue-buttons {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+.macronutrient-summary .continue-buttons .new-search-button {
+  color: #F747AD;
+  background-color: #FAD5EE;
+  border: 1.5px solid #F747AD;
+  margin: 3vw 3vw 0 3vw;
+}
+.macronutrient-summary .continue-buttons .new-search-button:hover {
+  background-color: #EFB6DD;
+}
+.macronutrient-summary .continue-buttons .save-data-button {
+  background-color: #F747AD;
+  border: 1.5px solid #F747AD;
+  margin: 3vw 3vw 0 3vw;
+}
+.macronutrient-summary .continue-buttons .save-data-button:hover {
+  background-color: #D993C8;
+  border: 1.5px solid #D993C8;
+}
+
+/* --- header section --- */
+.about-us-header {
+  background: radial-gradient(closest-side, #82EB84, #82EB84, #6DCC6F);
+  height: 35vw;
+  overflow: hidden;
+}
+.about-us-header span {
+  color: #FAD5EE;
+}
+.about-us-header .about-us-header-image {
+  height: 28vw;
+}
+.about-us-header .about-us-header-image img {
+  max-height: 28vw;
+  position: absolute;
+  right: 16vw;
+  bottom: 0;
+}
+.about-us-header .about-us-header-box {
+  margin: 3vw 0 0 20vw;
+  z-index: 100;
+}
+
+/* --- main section --- */
+.lifestyle .lifestyle-content-box {
+  display: flex;
+  align-items: center;
+  background-color: #FAD5EE;
+  margin: 6vw;
+  padding: 6vw;
+  position: relative;
+  height: 50vw;
+}
+.lifestyle .lifestyle-content-box .lifestyle-text-container {
+  position: relative;
+  z-index: 100;
+}
+.lifestyle .lifestyle-content-box .lifestyle-text-container h1 span {
+  color: #37969A;
+}
+.lifestyle .lifestyle-content-box .lifestyle-text-container h3 {
+  color: #454444;
+  max-width: 50%;
+}
+.lifestyle .lifestyle-content-box .about-us-main-image {
+  position: absolute;
+  top: 3vw;
+  right: 12vw;
+  height: 50vw;
+}
+.lifestyle .lifestyle-content-box .about-us-main-image img {
+  max-height: 50vw;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #B5B5B5;
+  padding: 6vw;
+}
+.service h1 span {
+  color: #ADFCAE;
+}
+.service h3 {
+  padding: 0.5vw;
+}
+.service h3 span {
+  font-weight: 900;
+}
+.service .service-container {
+  display: flex;
+  padding-top: 2vw;
+}
+.service .service-container .service-text-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1vw;
+}
+.service .service-container .service-text-box .service-icon {
+  font-size: 2.5vw;
+  color: #ADFCAE;
+  padding: 1vw;
+}
+
+/* --- header section --- */
+.contact-us-header {
+  background: radial-gradient(closest-side, #A67FCE, #A67FCE, #924ED6);
+  height: 35vw;
+  overflow: hidden;
+}
+.contact-us-header span {
+  color: #FDFD97;
+}
+.contact-us-header .contact-us-header-image {
+  height: 32vw;
+}
+.contact-us-header .contact-us-header-image img {
+  max-height: 32vw;
+  position: absolute;
+  right: 20vw;
+  bottom: 0;
+}
+.contact-us-header .contact-us-header-box {
+  margin: 3vw 0 0 23vw;
+  z-index: 100;
+}
+
+/* --- main section --- */
+.contact-form .contact-form-content-box {
+  display: flex;
+  align-items: center;
+  background-color: #ADFCAE;
+  margin: 6vw;
+  padding: 3vw;
+  position: relative;
+  height: 55vw;
+}
+.contact-form .contact-form-content-box .contact-us-main-image {
+  position: absolute;
+  top: 0;
+  right: -3vw;
+  height: 55vw;
+}
+.contact-form .contact-form-content-box .contact-us-main-image img {
+  max-height: 55vw;
+  z-index: 200;
+}
+.contact-form .contact-form-content-box .contact-form-container {
+  background-color: #FAD5EE;
+  width: 40vw;
+  height: 100%;
+  border-radius: 0.5vw;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+.contact-form .contact-form-content-box .contact-form-container h2 {
+  background-color: #D993C8;
+  border-radius: 0.5vw 0.5vw 0 0;
+  padding: 3vw 0;
+  text-align: center;
+}
+.contact-form .contact-form-content-box .contact-form-container h2 span {
+  color: #ADFCAE;
+}
+.contact-form .contact-form-content-box .contact-form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3vw;
+}
+.contact-form .contact-form-content-box .contact-form-container form ::placeholder {
+  color: #B5B5B5;
+  opacity: 1;
+  font-size: 1.1vw;
+  font-family: "Open Sans", sans-serif;
+}
+.contact-form .contact-form-content-box .contact-form-container form div {
+  display: flex;
+  flex-direction: row;
+}
+.contact-form .contact-form-content-box .contact-form-container form div span {
+  background-color: #D993C8;
+  padding: 1vw 2vw;
+  margin: 1vw 0;
+  border-radius: 5px 0 0 5px;
+}
+.contact-form .contact-form-content-box .contact-form-container form div input, .contact-form .contact-form-content-box .contact-form-container form div textarea {
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 1vw 2vw;
+  margin: 1vw 0;
+  width: 22vw;
+}
+.contact-form .contact-form-content-box .contact-form-container form button {
+  background-color: #D993C8;
+  border: 2px solid #D993C8;
+  margin: 3vw auto 1vw;
+}
+.contact-form .contact-form-content-box .contact-form-container form button:hover {
+  background-color: #EFB6DD;
+  border: 2px solid #FFFFFF;
+}
+
+.our-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #B5B5B5;
+  padding: 6vw;
+}
+.our-contact h1 span {
+  color: #ADFCAE;
+}
+.our-contact h3, .our-contact h4 {
+  margin: 0;
+  padding: 0 0.5vw 0.5vw 0;
+  color: #FFFFFF;
+}
+.our-contact h3 span, .our-contact h4 span {
+  font-weight: 900;
+}
+.our-contact .our-contact-container {
+  display: flex;
+  padding-top: 3vw;
+}
+.our-contact .our-contact-container .our-contact-text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 1vw;
+  width: 30vw;
+}
+.our-contact .our-contact-container .our-contact-text-box .our-contact-address-line {
+  display: flex;
+}
+.our-contact .our-contact-container .our-contact-text-box .our-contact-address-line .our-contact-icon {
+  font-size: 2.5vw;
+  color: #ADFCAE;
+  width: 10vw;
+}
+.our-contact .contact-us-map {
+  height: 20vw;
+}
+.our-contact .contact-us-map img {
+  max-height: 20vw;
+  right: 20vw;
+  bottom: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */

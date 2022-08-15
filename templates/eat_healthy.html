@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+
+{% block title %}Eat healthy{% endblock %}
+
+{% block headerScript %}
+{% endblock %}
+
+{% block main %}
+  <header class="eat-healthy-header">
+    <div class="eat-healthy-header-box">
+      <h1><span>Healthy</span> Recipes</h1>
+      <div class="text-box">
+        <h3>Healthy meal recipes to shape your body.</h3>
+        <form action="/eat_healthy" method="POST">
+          <div class="search">
+            <div class="search-icon"><i class="fas fa-search"></i></div>
+            <input autocomplete="off" name="search_word" type="name" placeholder="Search"/>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="eat-healthy-header-image">
+      <img src="static/images/tomato.png" alt="Tomato" />
+    </div>
+  </header>
+
+  <div class="eat-healthy container">
+    <div class="container-action">
+      <div>
+        <h3><span>Search words:</span> {{search_word}}</h3>
+      </div>
+      {% if search_word != "Saved recipes" %}
+        <form action='/show_saved_recipes' method="POST">
+          <button type="submit" class="show-saved-button" id="show-saved" onclick=showSaved()>show saved</button>
+        </form>
+      {% endif %}
+    </div>
+    <div class="featured-recipes-area">
+      {% for row in hits: %}
+        <div class="small-recipe-container">
+
+          <div class="recipe-selector">
+            <div class="small-recipe-image"><img src={{row["recipe"]["image"]}} alt="recipe"/></div>
+            <div class="small-recipe-text">
+              <div class="recipe-content">
+                <h3>{{row["recipe"]["label"]}}</h3>
+                <h4>{{round(row["recipe"]["totalNutrients"]["ENERC_KCAL"]["quantity"]/row["recipe"]["yield"])}} {{row["recipe"]["totalNutrients"]["ENERC_KCAL"]["unit"]}}/Serving</h4>
+              </div>
+            </div>
+          </div>
+
+          <form action="/save_recipe" method="POST" class="save-recipe">
+              <input type="hidden" value="{{row.recipe.uri}}" name="recipeId">
+              <input type="hidden" value="{{search_word}}" name="searchWord">
+              <button type="submit">
+                <div class="icon-container">
+                  {% if row.get('saved') is not none: %}
+                      <div class="save-icon"><i class="fas fa-bookmark"></i></div>
+                      <h3>Recipe saved</h3>
+                    {% else %}
+                      <div class="save-icon"><i class="far fa-bookmark"></i></div>
+                      <h3>Save recipe</h3>
+                  {% endif %}
+                </div>
+              </button>
+          </form>
+            
+        </div>
+
+        <!-- The Modal -->
+        <div class="modal">
+          <span class="close">x</span>
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="modal-header-left">
+                <h2>{{row["recipe"]["label"]}}</h2>
+                <div class="macro-nutrients">
+                  <h3>{{round(row["recipe"]["totalNutrients"]["ENERC_KCAL"]["quantity"])}} {{row["recipe"]["totalNutrients"]["ENERC_KCAL"]["unit"]}} cal</h3>
+                  <h3>|</h3>
+                  <h3>{{round(row["recipe"]["totalNutrients"]["PROCNT"]["quantity"])}} {{row["recipe"]["totalNutrients"]["PROCNT"]["unit"]}} proteins</h3>
+                  <h3>|</h3>
+                  <h3>{{round(row["recipe"]["totalNutrients"]["FAT"]["quantity"])}} {{row["recipe"]["totalNutrients"]["FAT"]["unit"]}} fat</h3>
+                  <h3>|</h3>
+                  <h3>{{round(row["recipe"]["totalNutrients"]["CHOCDF"]["quantity"])}} {{row["recipe"]["totalNutrients"]["CHOCDF"]["unit"]}} carbs</h3>
+                </div>
+                <div class="modal-header-bottom-row">
+                  <div class="icon-container">
+                    <div class="icon"><i class="fas fa-user"></i></div>
+                    <h3>{{round(row["recipe"]["yield"])}} servings</h3>
+                  </div>
+                  <div class="icon-container">
+                    <div class="icon"><i class="fas fa-clock"></i></div>
+                    <h3>{{row["recipe"]["totalTime"]}} min</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-header-right">
+                <form action="/save_recipe" method="POST" class="save-recipe">
+                  <input type="hidden" value="{{row.recipe.uri}}" name="recipeId">
+                  <input type="hidden" value="{{search_word}}" name="searchWord">
+                  <button type="submit">
+                    <div class="icon-container">
+                      {% if row.get('saved') is not none: %}
+                        <div class="save-icon"><i class="fas fa-bookmark"></i></div>
+                        <h3>Recipe saved</h3>
+                      {% else %}
+                        <div class="save-icon"><i class="far fa-bookmark"></i></div>
+                        <h3>Save recipe</h3>
+                      {% endif %}
+                    </div>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div class="large-recipe-image"><img src={{row["recipe"]["image"]}} alt="recipe"/></div>
+            <div class="modal-bottom">
+              <div class="ingredients">
+                <h2>Ingredients</h2>
+                <div class="content-box">
+                  {% for ingredient in row["recipe"]["ingredients"]: %}
+                    <h3>&#8729; {{ingredient["text"]}} ({{round(ingredient["weight"])}} g)</h3>
+                  {% endfor %}
+                  <a href={{row["recipe"]["url"]}} target="_blank"><button>See instructions</button></a>
+                </div>
+              </div>
+              <div class="nutrients">
+                <h2>Nutrients</h2>
+                <div class="content-box">
+                  <div class="nutrients-box">
+                    <h3>Calories</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["ENERC_KCAL"]["quantity"])}} {{row["recipe"]["totalNutrients"]["ENERC_KCAL"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Fat</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["FAT"]["quantity"])}} {{row["recipe"]["totalNutrients"]["FAT"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Saturated fat</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["FASAT"]["quantity"])}} {{row["recipe"]["totalNutrients"]["FASAT"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Polyunsaturated fat</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["FAPU"]["quantity"])}} {{row["recipe"]["totalNutrients"]["FAPU"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Monounsaturated fat</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["FAMS"]["quantity"])}} {{row["recipe"]["totalNutrients"]["FAMS"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Carbohydrates</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["CHOCDF"]["quantity"])}} {{row["recipe"]["totalNutrients"]["CHOCDF"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Sugar</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["SUGAR"]["quantity"])}} {{row["recipe"]["totalNutrients"]["SUGAR"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Fiber</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["FIBTG"]["quantity"])}} {{row["recipe"]["totalNutrients"]["FIBTG"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Protein</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["PROCNT"]["quantity"])}} {{row["recipe"]["totalNutrients"]["PROCNT"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Sodium</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["NA"]["quantity"])}} {{row["recipe"]["totalNutrients"]["NA"]["unit"]}}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+  <script src="static/modal.js"></script>
+{% endblock %}

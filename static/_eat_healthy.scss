@@ -1,0 +1,301 @@
+@use "constants";
+
+/* --- header section --- */
+
+.eat-healthy-header {
+  @extend %shared-box;
+  background: radial-gradient(closest-side, constants.$light-orange, constants.$light-orange, constants.$dark-orange);
+  height: 35vw;
+  overflow: hidden;
+  span {
+    color: constants.$light-green;
+  }
+  .eat-healthy-header-image {
+    height: 40vw;
+    img {
+      max-height: 40vw;
+      position: absolute;
+      right: 21vw;
+      bottom: -10vw;
+    }
+  }
+  .eat-healthy-header-box {
+    @extend %shared-box-content;
+    margin: 3vw 0 0 22vw;
+    z-index: 100;
+    input {
+      font-size: constants.$font-button-size;
+      font-family: "Open Sans semibold";
+      background-color: transparent;
+      border: none;
+      color: constants.$white;
+      width: 100%;
+      padding-right: 1.5vw;
+    }
+    ::placeholder {
+      color: constants.$white;
+      opacity: 0.6;
+    }
+    textarea:focus, input:focus {
+      outline: none;
+    }
+    .search {
+      font-size: constants.$font-button-size;
+      display: flex;
+      border: 1.5px solid constants.$white;
+      border-radius: 5px;
+      height: 4vw;
+      .search-icon {
+        display: flex;
+        align-items: center;
+        padding: 0.8vw 1.5vw;
+      }
+    }
+  }
+}
+
+/* --- main section --- */
+
+.eat-healthy {
+  background-color: constants.$light-grey;
+  .container-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5vw;
+    h3 {
+      padding: 0;
+      color: constants.$dark-grey;
+      span {
+        font-weight: 900;
+      }
+    }
+    .show-saved-button {
+      background-color: constants.$dark-pink;
+      border: none;
+    }
+    .show-saved-button:hover {
+      background-color: constants.$medium-pink;
+    }
+  }
+}
+
+.save-recipe button {
+  all: unset;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  padding: 1vw;
+  width: 18vw;
+  h3 {
+    padding: 0 0 0 1vw;
+  }
+  .save-icon {
+    font-size: 1.8vw;
+    color: constants.$fuccia;
+  }
+}
+.icon-container:hover {
+  h3 {
+    color: constants.$medium-grey;
+  }
+  .save-icon {
+    font-size: 1.8vw;
+    color: constants.$dark-pink
+  }
+}
+
+.featured-recipes-area {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  .small-recipe-container {
+    margin: 1vw;
+    color: constants.$dark-grey;
+    cursor: pointer;
+    .recipe-selector {
+      .small-recipe-image {
+        height: 14vw;
+        width: 20vw;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        border-radius: 1vw 1vw 0 0;
+        img {
+          max-width: 100%;
+        }
+      }
+      .small-recipe-text {
+        background-color: constants.$white;
+        height: 10vw;
+        width: 20vw;
+        padding: 1vw 1vw 0;
+        .recipe-content {
+          padding-left: 1vw;
+          h3 {
+            padding-top: 0;
+            height: 4.8vw;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    .save-recipe {
+      background-color: constants.$white;
+      height: 5vw;
+      border-radius: 0 0 1vw 1vw;
+      padding: 0 1vw 1vw;
+      .icon-container {
+        border-top: 1px solid constants.$medium-grey;
+      }
+    }
+  }
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  .close {
+    color: constants.$dark-grey;
+    float: right;
+    font-size: constants.$font-h2-size;
+    padding: 1vw;
+  }
+  .close:hover,
+  .close:focus {
+    color: constants.$fuccia;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .modal-content {
+    background-color: constants.$white;
+    margin: 10vw auto;
+    width: 80vw;
+    border-radius: 0.5vw;
+    .large-recipe-image {
+      height: 40vw;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      img {
+        display: block;
+        width: 80vw;
+        height: 80vw;
+      }
+    }
+    .modal-header {
+      background-color: constants.$dark-blue;
+      display: flex;
+      justify-content: space-between;
+      padding: 1vw 3vw;
+      border-radius: 0.5vw 0.5vw 0 0;
+      .modal-header-left {
+        h2 {
+          color: constants.$light-green;
+        }
+        .macro-nutrients {
+          display: flex;
+          h3 {
+            color: constants.$white;
+            padding: 1vw 1vw 0.5vw 0;
+          }
+        }
+        .modal-header-bottom-row {
+          display: flex;
+          .icon-container {
+            padding: 0;
+            margin-right: 2vw;
+            h3 {
+              color: constants.$white;
+            }
+            .icon {
+              font-size: constants.$font-h3-size;
+            }
+          }
+        }
+      }
+      .modal-header-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        .icon-container {
+          justify-content: flex-end;
+          padding: 0 0 1vw 0;
+          h3 {
+            color: constants.$white;
+          }
+          .save-icon {
+            color: constants.$light-pink;
+          }
+        }
+        .icon-container:hover {
+          h3 {
+            color: constants.$light-grey;
+          }
+          .save-icon {
+            color: constants.$medium-pink;
+          }
+        }
+      }
+    }
+    .modal-bottom {
+      background-color: constants.$dark-blue;
+      padding: 2vw;
+      display: flex;
+      color: constants.$dark-grey;
+      border-radius: 0 0 0.5vw 0.5vw;
+      h3 {
+        padding: 0;
+      }
+      .ingredients {
+        padding: 1vw;
+        width: 50%;
+        h2 {
+          background-color: constants.$dark-pink;
+          color: constants.$yellow;
+          border-radius: 0.5vw 0.5vw 0 0;
+          padding: 2vw;
+        }
+        button {
+          margin: 2vw auto 0 auto;
+          border: none;
+          background-color: constants.$dark-orange;
+        }
+        button:hover {
+          background-color: constants.$light-orange;
+        }
+      }
+      .nutrients {
+        padding: 1vw;
+        width: 50%;
+        h2 {
+          background-color: constants.$dark-green;
+          color: constants.$fuccia;
+          border-radius: 0.5vw 0.5vw 0 0;
+          padding: 2vw;
+        }
+      }
+      .content-box {
+        background-color: constants.$white;
+        border-radius: 0 0 0.5vw 0.5vw;
+        padding: 2vw;
+        .nutrients-box {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}

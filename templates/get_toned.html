@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}Get toned{% endblock %}
+
+{% block main %}
+  <header class="carousel">
+    <div class="carousel-box">
+      <h1><span>Get </span> toned</h1>
+      <div class="text-box">
+        <h3>We help you find your prefered yoga so that you can add them to your yoga plans.</h3>
+      </div>
+    </div>
+    <div class="header-image">
+      <img src="static/images/sculpted-goddess.png" alt="sculpted-goddess" />
+    </div>
+  </header>
+  <br>
+  <br>
+<!--# https://priyangsubanerjee.github.io/yogism/yogism-api.json-->
+  <div class="eat-healthy container">
+    <div class="container-action">
+      <div>
+        <h3><span>Yoga Poses: </span>All</h3>
+      </div>
+    </div>
+    <div class="featured-recipes-area">
+      {% for row in pose: %}
+        <div class="small-recipe-container">
+
+          <div class="recipe-selector">
+            <div class="small-recipe-image"><img src={{row["image"]}} alt="yoga"/></div>
+            <div class="small-recipe-text">
+              <div class="recipe-content">
+                <h3>English:{{row["english_name"]}}</h3>
+                <h4>Sanskrit:{{row["sanskrit_name"]}}</h4>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- The Modal -->
+        <div class="modal">
+          <span class="close">x</span>
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="modal-header-left">
+                <h2>{{row["sanskrit_name"]}}</h2>
+                <div class="macro-nutrients">
+                  <h3>English name: {{row["english_name"]}} </h3>
+                  </div>
+                <div class="modal-header-bottom-row">
+                    <div class="icon">
+                      <h3> Target: {{row["target"]}} </h3>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-header-right">
+                <h3>Level: {{row["category"]}} </h3>
+              </div>
+            </div>
+            <div class="large-recipe-image"><img src={{row["image"]}} alt="yoga" style="max-width:100%;max-height: 600px;"/></div>
+            <div class="modal-bottom">
+              <div class="ingredients">
+                <h2>Benifits</h2>
+                <div class="content-box">
+                    <h3> {{row["benefits"]}} </h3>
+                </div>
+              </div>
+              <div class="nutrients">
+                <h2>Steps</h2>
+                <div class="content-box">
+                  <div class="nutrients-box">
+                    <h3> {{row["steps"]}} </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <br>
+  <br>
+{% endblock %}
+
+
+{% block script %}
+  <script src="static/modal.js"></script>
+{% endblock %}
