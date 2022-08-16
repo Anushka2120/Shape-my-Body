@@ -37,7 +37,7 @@ Session(app)
 
 # postgres sql app config for heroku
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://oywegrrpomcpcn:ea81d69c7715ff882408d8d6fda1203402fc8c5b4e302d10defbddc13692538b@ec2-34-234-240-121.compute-1.amazonaws.com:5432/d8umna7v86uqav'
-
+db = SQLAlchemy(app)
 
 # My functions
 def rounded(r):
