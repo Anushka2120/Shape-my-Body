@@ -1,6 +1,5 @@
 import requests
-# from sqlalchemy import create_engine, select,
-from sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine, select, SQLAlchemy
 from flask import Flask, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_session import Session
 from tempfile import mkdtemp
@@ -11,6 +10,7 @@ from helpers import login_required, apology
 import uuid
 import urllib
 import json
+
 
 
 # Configure application
