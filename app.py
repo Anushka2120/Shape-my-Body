@@ -33,7 +33,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure SQLAlchemy Library to use SQLite database
-engine = create_engine("sqlite:///sculptedgoddess.db", echo=True, pool_pre_ping=True)
+engine = create_engine("sqlite:///shapemybody.db", echo=True, pool_pre_ping=True)
 
 # My functions
 def rounded(r):
