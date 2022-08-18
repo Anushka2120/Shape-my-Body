@@ -112,7 +112,7 @@ def register():
         if password != confirmation:
             return apology("Your passwords did not match", 400)
 
-        engine.execute("INSERT INTO users (username, hash) VALUES (:username, :hash)", username=username, hash=generate_password_hash(password))
+        engine.execute("INSERT INTO users (username, hash) VALUES (username, hash)", username=username, hash=generate_password_hash(password))
         return redirect("/login")
 
 
