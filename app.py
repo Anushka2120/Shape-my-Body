@@ -37,8 +37,8 @@ Session(app)
 # engine = create_engine("sqlite:///shapemybody.db", echo=True, pool_pre_ping=True)
 
 # postgres sql app config for heroku
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://oywegrrpomcpcn:ea81d69c7715ff882408d8d6fda1203402fc8c5b4e302d10defbddc13692538b@ec2-34-234-240-121.compute-1.amazonaws.com:5432/d8umna7v86uqav'
-# engine = create_engine("postgres://oywegrrpomcpcn:ea81d69c7715ff882408d8d6fda1203402fc8c5b4e302d10defbddc13692538b@ec2-34-234-240-121.compute-1.amazonaws.com:5432/d8umna7v86uqav", echo=True, pool_pre_ping=True)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://oywegrrpomcpcn:ea81d69c7715ff882408d8d6fda1203402fc8c5b4e302d10defbddc13692538b@ec2-34-234-240-121.compute-1.amazonaws.com:5432/d8umna7v86uqav'
+engine = create_engine("postgres://oywegrrpomcpcn:ea81d69c7715ff882408d8d6fda1203402fc8c5b4e302d10defbddc13692538b@ec2-34-234-240-121.compute-1.amazonaws.com:5432/d8umna7v86uqav", echo=True, pool_pre_ping=True)
 
 
 # My functions
@@ -70,10 +70,12 @@ def login():
         # Ensure password was submitted
         elif not request.form.get("password"):
             return apology("must provide password", 403)
-
+       
         # Query database for username
-        result = engine.execute("SELECT * FROM users WHERE username = :username",
-            username=request.form.get("username"))
+        # result = engine.execute("SELECT * FROM users WHERE username = :username",
+        #    username=request.form.get("username"))
+         username=request.form.get("username")   #  this line is needed only for postgres database else comment this line and uncomment below result query 
+         result = engine.execute("SELECT * FROM users WHERE username = %s ",(username))
 
         # Ensure username exists and password is correct
         if not result:
@@ -102,6 +104,7 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
+      
 
         if not username:
             return apology("You must provide a Username", 400)
@@ -112,7 +115,9 @@ def register():
         if password != confirmation:
             return apology("Your passwords did not match", 400)
 
-        engine.execute("INSERT INTO users (username, hash) VALUES (:username, :hash)", username=username, hash=generate_password_hash(password))
+        # engine.execute("INSERT INTO users (username, hash) VALUES (:username, :hash)", username=username, hash=generate_password_hash(password))
+        hash=generate_password_hash(password) # for postgres
+        engine.execute("INSERT INTO users (username, hash) VALUES (%s, %s)", (username, hash))
         return redirect("/login")
 
 
@@ -147,9 +152,12 @@ def eat_healthy():
                 hits_str = request.args.get("hits")
                 hits = json.loads(hits_str)
                 count = request.args.get("count")
-
+                
+   
                 # Check what recipes this user have saved in DB recipes table
-                savedResp = engine.execute("SELECT * FROM recipes WHERE user_id=:user_id", user_id=session['user_id'])
+                # savedResp = engine.execute("SELECT * FROM recipes WHERE user_id=:user_id", user_id=session['user_id'])
+                user_id=session['user_id'] # for postgres
+                savedResp = engine.execute("SELECT * FROM recipes WHERE user_id = %s", (user_id))
                 saved = savedResp.fetchall()
 
                 for row in saved:
@@ -188,7 +196,9 @@ def eat_healthy():
         count = responseJSON["count"]
 
     # Check what recipes this user have saved in DB recipes table
-    savedResp = engine.execute("SELECT * FROM recipes WHERE user_id=:user_id", user_id=session['user_id'])
+    # savedResp = engine.execute("SELECT * FROM recipes WHERE user_id =:user_id", user_id=session['user_id'])
+    user_id=session['user_id'] # for postgres
+    savedResp = engine.execute("SELECT * FROM recipes WHERE user_id = %s", (user_id))
     saved = savedResp.fetchall()
 
     for row in saved:
@@ -211,7 +221,9 @@ def show_saved_recipes():
     hits = []
     recipeCount = 0
 
-    saved_recipes = engine.execute("SELECT * FROM recipes WHERE user_id=:user_id", user_id=session['user_id'])
+    # saved_recipes = engine.execute("SELECT * FROM recipes WHERE user_id=:user_id", user_id=session['user_id'])
+    user_id=session['user_id'] # for postgres
+    saved_recipes = engine.execute("SELECT * FROM recipes WHERE user_id = %s", (user_id))
 
     if saved_recipes is not None:
         for row in saved_recipes:
@@ -253,14 +265,23 @@ def save_recipe():
     latestSearchWord = request.form.get("searchWord")
 
     # Check if already saved in DB recipes table
-    isSavedResp = engine.execute("SELECT COUNT(*) FROM recipes WHERE user_id=:user_id AND recipe_id=:recipe_id", user_id=session['user_id'], recipe_id=recipeId)
+    # isSavedResp = engine.execute("SELECT COUNT(*) FROM recipes WHERE user_id=:user_id AND recipe_id=:recipe_id", user_id=session['user_id'], recipe_id=recipeId)
+    user_id=session['user_id']
+    recipe_id=recipeId
+    isSavedResp = engine.execute("SELECT COUNT(*) FROM recipes WHERE user_id=%s AND recipe_id=%s", (user_id, recipe_id))
     isSaved = isSavedResp.fetchall()[0][0]
 
     # Saves the recipe and search in recipes table in DB if not already saved. Else it is deleted from recipes table.
     if isSaved == 0:
-        engine.execute("INSERT INTO recipes(recipe_id, user_id) VALUES(:recipe_id, :user_id)", recipe_id=recipeId, user_id=session['user_id'])
+        # engine.execute("INSERT INTO recipes(recipe_id, user_id) VALUES(:recipe_id, :user_id)", recipe_id=recipeId, user_id=session['user_id'])
+        recipe_id=recipeId
+        user_id=session['user_id']
+        engine.execute("INSERT INTO recipes(recipe_id, user_id) VALUES(%s,%s)", (recipe_id, user_id))
     else:
-        engine.execute("DELETE FROM recipes WHERE user_id=:user_id AND recipe_id=:recipe_id", user_id=session['user_id'], recipe_id=recipeId)
+        # engine.execute("DELETE FROM recipes WHERE user_id=:user_id AND recipe_id=:recipe_id", user_id=session['user_id'], recipe_id=recipeId)
+        recipe_id=recipeId
+        user_id=session['user_id']
+        engine.execute("DELETE FROM recipes WHERE user_id=%s AND recipe_id=%s", (user_id, recipe_id))
 
     if latestSearchWord == "Saved recipes":
         return redirect(url_for('show_saved_recipes'))
@@ -413,9 +434,21 @@ def save_macros():
     new_calFat = session['calFat']
     new_calCarbs = session['calCarbs']
 
-    engine.execute("INSERT INTO macros (user_id, calInt, calProt, calFat, calCarbs) VALUES (:user_id, :calInt, :calProt, :calFat, :calCarbs) \
-        ON CONFLICT(user_id) DO UPDATE SET calInt=:calInt, calProt=:calProt, calFat=:calFat, calCarbs=:calCarbs WHERE user_id=:user_id", \
-        user_id=session['user_id'], calInt=new_calInt, calProt=new_calProt, calFat=new_calFat, calCarbs=new_calCarbs)
+#     engine.execute("INSERT INTO macros (user_id, calInt, calProt, calFat, calCarbs) VALUES (:user_id, :calInt, :calProt, :calFat, :calCarbs) \
+#         ON CONFLICT(user_id) DO UPDATE SET calInt=:calInt, calProt=:calProt, calFat=:calFat, calCarbs=:calCarbs WHERE user_id=:user_id", \
+#         user_id=session['user_id'], calInt=new_calInt, calProt=new_calProt, calFat=new_calFat, calCarbs=new_calCarbs)
+
+    user_id=session['user_id']
+    calInt=new_calInt
+    calProt=new_calProt
+    calFat=new_calFat
+    calCarbs=new_calCarbs
+
+    engine.execute("INSERT INTO macros (user_id, calInt, calProt, calFat, calCarbs) VALUES (%s, %s, %s, %s, %s) \
+        ON CONFLICT(user_id) DO UPDATE SET calInt= %s, calProt=%s, calFat=%s, calCarbs=%s WHERE user_id=%s", \
+        (user_id, calInt, calProt, calFat, calCarbs))
+    
+    
 
     # Is added to the history array in DB
     if session['gender'] == "-161":
@@ -427,10 +460,25 @@ def save_macros():
     uniqueId = uuid.uuid1()
 
     # Add history data to history table in DB
+#     engine.execute("INSERT INTO history (data_id, user_id, gender, weight, height, age, activity, goal, desiredWeight, time) \
+#         VALUES (:data_id, :user_id, :gender, :weight, :height, :age, :activity, :goal, :desiredWeight, :time)", \
+#         data_id = uniqueId.hex, user_id = session['user_id'], gender = gender, weight = session['currentWeight'], height = session['height'], \
+#         age = session['age'], activity = session['activity'], goal = session['goal'], desiredWeight = session['desiredWeight'], time = time)
+    
+    
+    data_id = uniqueId.hex
+    user_id = session['user_id']
+    gender = gender
+    weight = session['currentWeight']
+    height = session['height'] 
+    age = session['age']
+    activity = session['activity']
+    goal = session['goal']
+    desiredWeight = session['desiredWeight']
+    time = time
+    
     engine.execute("INSERT INTO history (data_id, user_id, gender, weight, height, age, activity, goal, desiredWeight, time) \
-        VALUES (:data_id, :user_id, :gender, :weight, :height, :age, :activity, :goal, :desiredWeight, :time)", \
-        data_id = uniqueId.hex, user_id = session['user_id'], gender = gender, weight = session['currentWeight'], height = session['height'], \
-        age = session['age'], activity = session['activity'], goal = session['goal'], desiredWeight = session['desiredWeight'], time = time)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (data_id, user_id , gender, weight, height, age, activity, goal, desiredWeight, time))
 
     return redirect("/")
 
