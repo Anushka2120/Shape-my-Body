@@ -74,8 +74,8 @@ def login():
         # Query database for username
         # result = engine.execute("SELECT * FROM users WHERE username = :username",
         #    username=request.form.get("username"))
-         username=request.form.get("username")   #  this line is needed only for postgres database else comment this line and uncomment below result query 
-         result = engine.execute("SELECT * FROM users WHERE username = %s ",(username))
+        username=request.form.get("username")   #  this line is needed only for postgres database else comment this line and uncomment below result query 
+        result = engine.execute("SELECT * FROM users WHERE username = %s ",(username))
 
         # Ensure username exists and password is correct
         if not result:
