@@ -3,12 +3,12 @@ This is a web application that helps user to take care of their bodies in a heal
 
 Check live demo: https://shapemybody.herokuapp.com/
 
-<b> Shape my body Project <b>
+<b> Shape my body Project </b>
   
   Project will help you to find yoga poses and healthy diet recipes to keep your weight balanced and maintain your figure.
   <br> 
   
-  Project uses:<br> 
+ <b> Project uses:</b><br> 
   Flask --> as framework<br> 
   SQLite --> database <br> 
   (Postgres --> you can use this to by importing sql file)<br> 
@@ -16,7 +16,7 @@ Check live demo: https://shapemybody.herokuapp.com/
   <br> 
   <br> 
   
-  Language used:<br>
+  <b>Language used:</b><br>
   frontend: Html, CSS, SCSS, JS<br> 
   Backend: Python <br> 
   Database: Sql database (SQLite/ postgres)<br> 
