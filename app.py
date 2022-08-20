@@ -36,8 +36,12 @@ Session(app)
 # Configure SQLAlchemy Library to use SQLite database
 # engine = create_engine("sqlite:///shapemybody.db", echo=True, pool_pre_ping=True)
 
+# engine = create_engine("postgresql://postgres:Root@localhost:5432/Shapemybodydb", echo=True, pool_pre_ping=True)  # used for local postgres db
+
+
 # postgres sql app config for heroku
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://oywegrrpomcpcn:ea81d69c7715ff882408d8d6fda1203402fc8c5b4e302d10defbddc13692538b@ec2-34-234-240-121.compute-1.amazonaws.com:5432/d8umna7v86uqav'
+
 engine = create_engine("postgres://oywegrrpomcpcn:ea81d69c7715ff882408d8d6fda1203402fc8c5b4e302d10defbddc13692538b@ec2-34-234-240-121.compute-1.amazonaws.com:5432/d8umna7v86uqav", echo=True, pool_pre_ping=True)
 
 
@@ -491,5 +495,4 @@ def contact_us():
 
 if __name__== "__main__" :
     # app.run(debug = True)
-    # manager.run()
     app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
