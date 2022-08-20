@@ -448,10 +448,10 @@ def save_macros():
     calFat=new_calFat
     calCarbs=new_calCarbs
 
-    engine.execute("INSERT INTO macros (user_id, calInt, calProt, calFat, calCarbs) VALUES (%s, %s, %s, %s, %s) \
-        ON CONFLICT(user_id) DO UPDATE SET calInt= %s, calProt=%s, calFat=%s, calCarbs=%s WHERE user_id=%s", \
-        (user_id, calInt, calProt, calFat, calCarbs))
-    
+   # engine.execute("INSERT INTO macros (user_id, calInt, calProt, calFat, calCarbs) VALUES (%s, %s, %s, %s, %s) ON CONFLICT(user_id) DO UPDATE SET calInt= %s, calProt=%s, calFat=%s, calCarbs=%s WHERE user_id=%s", (user_id, calInt, calProt, calFat, calCarbs))
+
+    engine.execute("INSERT INTO macros (user_id, calInt, calProt, calFat, calCarbs) VALUES (%s, %s, %s, %s, %s) ON CONFLICT(user_id) DO UPDATE SET calInt= EXCLUDED.calInt, calProt=EXCLUDED.calProt, calFat=EXCLUDED.calFat, calCarbs=EXCLUDED.calCarbs ", (user_id, calInt, calProt, calFat, calCarbs))
+
     
 
     # Is added to the history array in DB
